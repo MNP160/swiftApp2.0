@@ -29,32 +29,58 @@ class RegController: UIViewController {
     
     var ref:DatabaseReference!
     var databaseHande:DatabaseHandle?
-
+    var isVerified = false
+    
+    func verifyInput(username: String, email:String, password:String) -> Bool{
+        
+        ref=Database.database().reference()
+        
+        databaseHande = ref?.child("Keys").observe(.value, with: { (snapshot) in
+            
+            for child in snapshot.children {
+                let snap = child as! DataSnapshot
+                let imageSnap = snap.childSnapshot(forPath: "key")
+                if  (password.count == 6 && password == imageSnap.value as? String && username.count != 0 && isValidEmail(testStr: email)){
+                    self.isVerified = true
+                    break
+                }
+                else{
+                    self.isVerified = false
+                    
+                }
+            }
+            
+        })
+        return isVerified
+    }
+    
     @IBAction func registerClick(_ sender: UIButton) {
         
+        ref=Database.database().reference()
         
         let username=userNameTxt.text
         let email = emailTxt.text
         let password = passTxt.text
-        var isVerified = false
-        ref=Database.database().reference()
         
-        databaseHande = ref?.child("Keys").observe(.value, with: { (snapshot) in
-           
-            for child in snapshot.children {
-                let snap = child as! DataSnapshot
-                let imageSnap = snap.childSnapshot(forPath: "key")
-                if  (password?.count == 6 && password == imageSnap.value as? String && username!.count != 0 && isValidEmail(testStr: email!)){
-                    isVerified = true
-                    break
+        verifyInput(username: username!, email: email!, password: password!)
+                                                                        //opravi ! shtoto lo6o
+        print("Just in case - krastavica \(verifyInput(username: username!, email: email!, password: password!))")
+        if verifyInput(username: username!, email: email!, password: password!){
+            Auth.auth().createUser(withEmail:email!,password:password!,completion:{(user,error) in
+                
+                if let u=user{
+                    //success
+                    
+                    self.performSegue(withIdentifier: "loginSuccess", sender: self)
                 }
                 else{
-                    isVerified = false
+                    //fail
+                    
                     
                 }
-            }
-            print("Kurec\(isVerified)")
-        })
+                
+            })
+        }
         
     
     }

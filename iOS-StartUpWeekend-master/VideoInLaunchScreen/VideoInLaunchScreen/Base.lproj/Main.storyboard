@@ -313,11 +313,12 @@ StartUP. Build. Sustain.</string>
                         <outlet property="emailTxt" destination="KEG-rY-v6j" id="po9-QA-mQW"/>
                         <outlet property="passTxt" destination="jPQ-co-uJ7" id="kI9-Z2-3ep"/>
                         <outlet property="userNameTxt" destination="MNe-tw-PP9" id="CxU-mX-dr8"/>
+                        <segue destination="aVy-c0-jZe" kind="show" identifier="loginSuccess" id="HlW-Gy-u7g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7fE-9h-aSw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3461" y="-930"/>
+            <point key="canvasLocation" x="4236" y="-901"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KY6-Zu-o4G">
@@ -339,6 +340,7 @@ StartUP. Build. Sustain.</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="HlW-Gy-u7g"/>
         <segue reference="QEs-p0-6Hl"/>
     </inferredMetricsTieBreakers>
 </document>
