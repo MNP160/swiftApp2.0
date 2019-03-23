@@ -17,6 +17,8 @@
 		99421A4E22357ED7005604CF /* RegController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99421A4D22357ED7005604CF /* RegController.swift */; };
 		99960D1C224514E70002F496 /* Iconnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99960D1B224514E70002F496 /* Iconnection.swift */; };
 		99960D26224541C30002F496 /* SpeakerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99960D25224541C30002F496 /* SpeakerTableViewController.swift */; };
+		99CE217D2246327000314F08 /* Speakers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE217C2246327000314F08 /* Speakers.swift */; };
+		99CE217F2246362D00314F08 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE217E2246362D00314F08 /* Users.swift */; };
 		99E680F02243BCE100BCA754 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99E680EE2243BC4D00BCA754 /* GoogleService-Info.plist */; };
 		B0BC7E03FBE9294936BD5D9B /* Pods_startUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367410A71922BF5EEACF6E46 /* Pods_startUp.framework */; };
 /* End PBXBuildFile section */
@@ -35,6 +37,8 @@
 		99421A4D22357ED7005604CF /* RegController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegController.swift; sourceTree = "<group>"; };
 		99960D1B224514E70002F496 /* Iconnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Iconnection.swift; sourceTree = "<group>"; };
 		99960D25224541C30002F496 /* SpeakerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpeakerTableViewController.swift; path = "/Users/mnp160/Documents/swiftApp2.0/iOS-StartUpWeekend-master/VideoInLaunchScreen/VideoInLaunchScreen/Cotrollers/SpeakerTableViewController.swift"; sourceTree = "<absolute>"; };
+		99CE217C2246327000314F08 /* Speakers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speakers.swift; sourceTree = "<group>"; };
+		99CE217E2246362D00314F08 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		99E680EE2243BC4D00BCA754 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A4A82B6A02076E37558E8CB4 /* Pods-startUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-startUp.debug.xcconfig"; path = "Target Support Files/Pods-startUp/Pods-startUp.debug.xcconfig"; sourceTree = "<group>"; };
 		CEE991CEDCECC7B11B858024 /* Pods-startUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-startUp.release.xcconfig"; path = "Target Support Files/Pods-startUp/Pods-startUp.release.xcconfig"; sourceTree = "<group>"; };
@@ -96,9 +100,11 @@
 			isa = PBXGroup;
 			children = (
 				99960D25224541C30002F496 /* SpeakerTableViewController.swift */,
+				99421A4D22357ED7005604CF /* RegController.swift */,
+				99CE217C2246327000314F08 /* Speakers.swift */,
+				99CE217E2246362D00314F08 /* Users.swift */,
 				1BB8ABBB221288CC00EB5852 /* VideoLaunchVC.swift */,
 				1BB8ABAB2212889600EB5852 /* ViewController.swift */,
-				99421A4D22357ED7005604CF /* RegController.swift */,
 				99E680EE2243BC4D00BCA754 /* GoogleService-Info.plist */,
 				1BB8ABA92212889600EB5852 /* AppDelegate.swift */,
 			);
@@ -242,8 +248,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99CE217F2246362D00314F08 /* Users.swift in Sources */,
 				99960D26224541C30002F496 /* SpeakerTableViewController.swift in Sources */,
 				99960D1C224514E70002F496 /* Iconnection.swift in Sources */,
+				99CE217D2246327000314F08 /* Speakers.swift in Sources */,
 				99421A4E22357ED7005604CF /* RegController.swift in Sources */,
 				1BB8ABAC2212889600EB5852 /* ViewController.swift in Sources */,
 				1BB8ABBC221288CC00EB5852 /* VideoLaunchVC.swift in Sources */,
