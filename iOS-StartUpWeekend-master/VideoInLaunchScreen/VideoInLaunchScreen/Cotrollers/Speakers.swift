@@ -9,6 +9,10 @@
 import Foundation
 import FirebaseDatabase
 
+
+
+
+
 public class Speakers{
    // private var name:String
     private var imageURL:String

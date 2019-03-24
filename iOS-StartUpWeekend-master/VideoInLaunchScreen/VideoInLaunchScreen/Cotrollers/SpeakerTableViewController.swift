@@ -8,8 +8,30 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+
+struct Headline {
+    
+    var id : Int
+    var title : String
+    var text : String
+    var image : String
+    
+}
+
+class HeadlineTableViewCell: UITableViewCell {
+    
+
+    
+}
+
 class SpeakerTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    
+    struct custSpeakerCell{
+        var id:Int
+        var description:String
+        
+    }
     
    
     @IBOutlet weak var speakerTbl: UITableView!
@@ -27,8 +49,7 @@ class SpeakerTableViewController: UIViewController, UITableViewDelegate, UITable
         ref=Database.database().reference()
         
         databaseHande = ref?.child("teachers_uploads").observe(.value, with: { (snapshot) in
-        //let ref = self.ref!.child("teachers_uploads")
-        //ref.observeSingleEvent(of: .value, with: { snapshot in
+       
             for child in snapshot.children {
                 let snap = child as! DataSnapshot
                 let imageSnap = snap.childSnapshot(forPath: "imageURL")
@@ -38,6 +59,7 @@ class SpeakerTableViewController: UIViewController, UITableViewDelegate, UITable
                 self.speakerTbl.reloadData()
             }
         })
+        
         
     }
        

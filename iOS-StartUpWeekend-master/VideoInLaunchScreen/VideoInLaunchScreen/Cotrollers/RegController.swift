@@ -9,6 +9,29 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+class checkBox:UIButton{
+    var isChecked: Bool = false {
+        didSet{
+            if isChecked == true {
+                self.setTitle("Accepted", for: UIControl.State.normal)
+            } else {
+                self.setTitle("NotAccepted", for: UIControl.State.normal)
+            }
+        }
+    }
+    
+    override func awakeFromNib() {
+        self.addTarget(self, action:#selector(buttonClicked(sender:)), for: UIControl.Event.touchUpInside)
+        self.isChecked = false
+    }
+    
+    @objc func buttonClicked(sender: UIButton) {
+        if sender == self {
+            isChecked = !isChecked
+        }
+    }
+    
+}
 
 
 
@@ -20,7 +43,11 @@ func isValidEmail(testStr:String) -> Bool {
 }
 
 class RegController: UIViewController {
-
+    
+    @IBOutlet weak var tapLabel: UILabel!
+    
+    @IBOutlet weak var acceptBtn: checkBox!
+    
     @IBOutlet weak var userNameTxt: UITextField!
     
     @IBOutlet weak var emailTxt: UITextField!
@@ -64,8 +91,10 @@ class RegController: UIViewController {
         
         verifyInput(username: username!, email: email!, password: password!)
                                                                         //opravi ! shtoto lo6o
-        print("Just in case - krastavica \(verifyInput(username: username!, email: email!, password: password!))")
-        if verifyInput(username: username!, email: email!, password: password!){
+        //print("Just in case - krastavica \(verifyInput(username: username!, email: email!, password: password!))")
+        
+        
+        if verifyInput(username: username!, email: email!, password: password!) && acceptBtn.isChecked{
             Auth.auth().createUser(withEmail:email!,password:password!,completion:{(user,error) in
                 
                 if let u=user{
@@ -75,6 +104,11 @@ class RegController: UIViewController {
                 }
                 else{
                     //fail
+                    let alertController = UIAlertController(title: "Registration Failed", message:
+                        "Please Input Data Correctly", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                    
+                    self.present(alertController, animated: true, completion: nil)
                     
                     
                 }
@@ -84,24 +118,56 @@ class RegController: UIViewController {
         
     
     }
+   
     
+    @IBAction func showTerms(_ sender: UIButton) {
+        
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "terms")
+        self.addChild(popOverVC)
+      
+        popOverVC.view.frame = self.view.frame
+        self.view.addSubview(popOverVC.view)
+        popOverVC.didMove(toParent: self)
+        self.showAnimate()
+    }
+    /*
+    @IBAction func closeTerms(_ sender: UIButton) {
+        self.removeAnimate()
+    }
+    */
     
-    
+    func showAnimate()
+    {
+        self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        self.view.alpha = 0.0;
+        UIView.animate(withDuration: 0.25, animations: {
+            self.view.alpha = 1.0
+            self.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        });
+    }
+    /*
+    func removeAnimate()
+    {
+        UIView.animate(withDuration: 0.25, animations: {
+            self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            self.view.alpha = 0.0;
+        }, completion:{(finished : Bool)  in
+            if (finished)
+            {
+                self.view.removeFromSuperview()
+            }
+        });
+    }
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+      
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
+    
 
 }
