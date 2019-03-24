@@ -42,6 +42,12 @@ class largeWorkshopViewController: UIViewController {
         self.workShopTitle.text=finalWorkshopTitle
         self.speakerName.text=finalSpeakerName
         self.workshopDescription.text=finalWorkshopDescription
+        
+        self.speakerImg.layer.borderWidth = 1
+        self.speakerImg.layer.masksToBounds = false
+        self.speakerImg.layer.borderColor = UIColor.black.cgColor
+        self.speakerImg.layer.cornerRadius = speakerImg.frame.height/2
+        self.speakerImg.clipsToBounds = true
 
         // Do any additional setup after loading the view.
     }
