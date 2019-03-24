@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
-
+/*
 struct Headline {
     
     var id : Int
@@ -16,7 +16,7 @@ struct Headline {
     var text : String
     var image : String
     
-}
+}*/
 
 class HeadlineTableViewCell: UITableViewCell {
     

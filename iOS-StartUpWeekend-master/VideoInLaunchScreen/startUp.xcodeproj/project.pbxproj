@@ -109,9 +109,9 @@
 			children = (
 				99421A4D22357ED7005604CF /* RegController.swift */,
 				99960D25224541C30002F496 /* SpeakerTableViewController.swift */,
+				99A5345322478200002C950A /* TableWorkshops.swift */,
 				99B9DAD52248001D0066F4DD /* largeWorkshopViewController.swift */,
 				99B9DAD32247F0900066F4DD /* LargeCellViewController.swift */,
-				99A5345322478200002C950A /* TableWorkshops.swift */,
 				99A534592247854A002C950A /* workshop.swift */,
 				99CE217C2246327000314F08 /* Speakers.swift */,
 				99CE217E2246362D00314F08 /* Users.swift */,

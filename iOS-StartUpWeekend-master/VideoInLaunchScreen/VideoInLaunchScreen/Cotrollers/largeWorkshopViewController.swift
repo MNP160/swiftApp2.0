@@ -9,9 +9,39 @@
 import UIKit
 
 class largeWorkshopViewController: UIViewController {
-
+    
+    var finalSpeakerImage:UIImage? = nil
+    var finalCapacityWorkshop = ""
+    var finalEnrolledWorkshop = ""
+    var finalSpeakerName = ""
+    var finalWorkshopTime = ""
+    var finalWorkshopTitle = ""
+    var finalWorkshopDescription = ""
+    
+    @IBOutlet weak var speakerImg: UIImageView!
+    @IBOutlet weak var maxEnrolled: UILabel!
+    
+    @IBOutlet weak var speakerName: UILabel!
+    @IBOutlet weak var startTime: UILabel!
+    
+    @IBOutlet weak var workshopDescription: UITextView!
+    
+    @IBOutlet weak var currEnrolled: UILabel!
+    @IBOutlet weak var workShopTitle: UILabel!
+    
+    @IBAction func signInBtn(_ sender: UIButton) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.speakerImg.image=finalSpeakerImage
+        self.currEnrolled.text=finalEnrolledWorkshop
+        self.maxEnrolled.text=finalCapacityWorkshop
+        self.startTime.text=finalWorkshopTime
+        self.workShopTitle.text=finalWorkshopTitle
+        self.speakerName.text=finalSpeakerName
+        self.workshopDescription.text=finalWorkshopDescription
 
         // Do any additional setup after loading the view.
     }
