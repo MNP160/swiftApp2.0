@@ -104,7 +104,12 @@ class RegController: UIViewController {
                         
                         if user != nil{
                             //success
-                            
+                            let userData = ["email": self.emailTxt.text! as String ,
+                                            "name": self.userNameTxt.text! as String,
+                                            "ticketCode": self.passTxt.text! as String
+                            ]
+                            let uid = Auth.auth().currentUser?.uid
+                            self.ref.child("Users").child(uid!).setValue(userData)
                             self.performSegue(withIdentifier: "loginSuccess", sender: self)
                         }
                             

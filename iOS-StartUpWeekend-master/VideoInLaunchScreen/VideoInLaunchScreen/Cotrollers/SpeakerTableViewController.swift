@@ -45,8 +45,8 @@ class SpeakerTableViewController: UIViewController, UITableViewDelegate, UITable
         self.speakerTbl.separatorStyle = .none
         speakerTbl.delegate=self
         speakerTbl.dataSource=self
-        ref=Database.database().reference()
         
+        ref=Database.database().reference()
         databaseHande = ref?.child("teachers_uploads").observe(.value, with: { (snapshot) in
             
             for child in snapshot.children {

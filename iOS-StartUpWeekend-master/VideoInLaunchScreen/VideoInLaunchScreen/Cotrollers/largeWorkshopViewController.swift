@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 class largeWorkshopViewController: UIViewController {
+    
+    var ref:DatabaseReference!
+    var databaseHande:DatabaseHandle?
+    
+    @IBOutlet weak var signInOut: UIButton!
     
     var finalSpeakerImage:UIImage? = nil
     var finalCapacityWorkshop = ""
@@ -18,6 +24,7 @@ class largeWorkshopViewController: UIViewController {
     var finalWorkshopTitle = ""
     var finalWorkshopDescription = ""
     var finalCell:Int = -1
+    
     @IBOutlet weak var speakerImg: UIImageView!
     @IBOutlet weak var maxEnrolled: UILabel!
     
@@ -29,10 +36,31 @@ class largeWorkshopViewController: UIViewController {
     @IBOutlet weak var currEnrolled: UILabel!
     @IBOutlet weak var workShopTitle: UILabel!
     
-    @IBAction func signInBtn(_ sender: UIButton) {
+    @IBAction func signInOutClick(_ sender: UIButton) {
         
+        ref=Database.database().reference()
         
+        if self.signInOut.titleLabel?.text == "Sign In"{
+        let wshNum = String(finalCell+1)
+        databaseHande = ref?.child("EnrolledinWorkshop" + wshNum).observe(.value, with: { (snapshot) in
+            
+            for child in snapshot.children {
+                let snap = child as! DataSnapshot
+                
+                
+                
+                
+            }
+        })
+            print("EnrolledinWorkshop" + wshNum)
+            self.signInOut.setTitle("Sign Out", for: .normal)
+        }
+        else
+        {
+        print("povervah")
+        }
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,20 +78,23 @@ class largeWorkshopViewController: UIViewController {
         self.speakerImg.layer.borderColor = UIColor.black.cgColor
         self.speakerImg.layer.cornerRadius = speakerImg.frame.height/2
         self.speakerImg.clipsToBounds = true
-        print("Da vidim\(finalCell)")
-
-        // Do any additional setup after loading the view.
-    }
+        //get uid
+        
+        
+        let wshNum = String(finalCell)
+        ref=Database.database().reference()
+        
+        let uid = Auth.auth().currentUser?.uid
+        
+        databaseHande = ref?.child("EnrolledinWorkshop" + wshNum).observe(.value, with: { (snapshot) in
+            if snapshot.hasChild(uid!){
+                self.signInOut.setTitle("Sign Out", for: .normal)
+                
+            }
+            
+       
+    })
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
-
 }

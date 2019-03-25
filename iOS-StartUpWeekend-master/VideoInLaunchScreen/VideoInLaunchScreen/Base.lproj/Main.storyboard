@@ -525,9 +525,9 @@ StartUP. Build. Sustain.</string>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fyx-Uu-EHU">
                                 <rect key="frame" x="262" y="417" width="137" height="30"/>
-                                <state key="normal" title="Sign in"/>
+                                <state key="normal" title="Sign In"/>
                                 <connections>
-                                    <action selector="signInBtn:" destination="Aw3-zg-mpt" eventType="touchUpInside" id="T8d-13-bcb"/>
+                                    <action selector="signInOutClick:" destination="Aw3-zg-mpt" eventType="touchUpInside" id="gAy-Gc-5lE"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="WorkshopTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFz-Ib-HBt">
@@ -612,6 +612,7 @@ StartUP. Build. Sustain.</string>
                     <connections>
                         <outlet property="currEnrolled" destination="AM6-Qt-Phc" id="dfS-9B-r1v"/>
                         <outlet property="maxEnrolled" destination="Ixe-EM-AY4" id="1Yv-Ej-peQ"/>
+                        <outlet property="signInOut" destination="Fyx-Uu-EHU" id="2Xu-aO-ffc"/>
                         <outlet property="speakerImg" destination="z6Z-Ee-hrP" id="n3b-r3-RsE"/>
                         <outlet property="speakerName" destination="x2K-vY-NfG" id="RBu-Nn-Xqt"/>
                         <outlet property="startTime" destination="EIx-hi-JWk" id="fbc-p6-meX"/>
@@ -811,7 +812,6 @@ This privacy policy page was created at privacypolicytemplate.net and modified/g
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Jv7-x2-gUO"/>
         <segue reference="h7W-Br-xt6"/>
         <segue reference="Dyg-b9-Iex"/>
         <segue reference="Nxw-NC-8p2"/>

@@ -111,7 +111,7 @@ class TableWorkshops: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.capacityWorkshop?.text = workshopCap[indexPath.row]
             cell.enrolledWorkshop?.text = workshopCurr[indexPath.row]
             cell.workshopTitle?.text = workshopTopic[indexPath.row]
-            bufferCell = indexPath.row
+            cell.currCell = indexPath.row
             
             
             let url = URL(string: workshopImg[indexPath.row])
@@ -122,7 +122,7 @@ class TableWorkshops: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.speakerImage.layer.borderColor = UIColor.black.cgColor
             cell.speakerImage.layer.cornerRadius = cell.speakerImage.frame.height/2
             cell.speakerImage.clipsToBounds = true
-            cell.currCell = bufferCell
+            
             
             return cell
         }
@@ -135,6 +135,7 @@ class TableWorkshops: UIViewController, UITableViewDataSource, UITableViewDelega
         let Ecell=cell.enrolledWorkshop?.text
         let maxrCell=cell.capacityWorkshop?.text
         let wImgCell=cell.speakerImage?.image
+        let selectedCell = cell.currCell
         
         self.curDescription = workshopDesc[indexPath.row]
         self.curImg=wImgCell!
@@ -143,6 +144,8 @@ class TableWorkshops: UIViewController, UITableViewDataSource, UITableViewDelega
         self.curWorkTime=timeCell!
         self.curWorkTitle=titleCell!
         self.curSpeaker=nameCell!
+        self.bufferCell = selectedCell
+        
         
         performSegue(withIdentifier: "largeW", sender: self)
     }
