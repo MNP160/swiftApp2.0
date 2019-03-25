@@ -11,6 +11,16 @@ import Firebase
 
 class largeWorkshopViewController: UIViewController {
     
+    
+    func toInt(s: String?) -> Int {
+        var result = 0
+        if let str: String = s,
+            let i = Int(str) {
+            result = i
+        }
+        return result
+    }
+    
     var ref:DatabaseReference!
     var databaseHande:DatabaseHandle?
     
@@ -38,29 +48,41 @@ class largeWorkshopViewController: UIViewController {
     
     @IBAction func signInOutClick(_ sender: UIButton) {
         
-        ref=Database.database().reference()
+        /*ref=Database.database().reference()
+        let wshNum = String(finalCell+1)
+        var currEnrolledDynamic: String!
+        
+        databaseHande = ref?.child("workshops_uploads").child("Workshop" + wshNum).observe(.value, with: { (snapshot) in
+            let enrollSnap = snapshot.childSnapshot(forPath: "currentlyEnrolled")
+            currEnrolledDynamic = enrollSnap.value as! String
+            
+            
+        })
         
         if self.signInOut.titleLabel?.text == "Sign In"{
-        let wshNum = String(finalCell+1)
-        databaseHande = ref?.child("EnrolledinWorkshop" + wshNum).observe(.value, with: { (snapshot) in
             
-            for child in snapshot.children {
-                let snap = child as! DataSnapshot
-                
-                
-                
+          
+            if toInt(s: self.finalCapacityWorkshop) > toInt(s: currEnrolledDynamic){
+                let commit = toInt(s: currEnrolledDynamic) + 4
+                print("yet another test \(commit)")
+                self.ref.child("workshops_uploads").child("Workshop" + wshNum).child("currentlyEnrolled").setValue(String(commit))
+            
+            
+            self.signInOut.setTitle("Sign Out", for: .normal)
+                self.currEnrolled.text = String(commit)
                 
             }
-        })
-            print("EnrolledinWorkshop" + wshNum)
-            self.signInOut.setTitle("Sign Out", for: .normal)
         }
         else
         {
-        print("povervah")
+            //self.ref.child("workshops_uploads").child("Workshop" + wshNum).child("currentlyEnrolled").setValue()
+            self.signInOut.setTitle("Sign In", for: .normal)
+            //self.currEnrolled.text =
         }
-    }
     
+*/
+        
+}
     
     override func viewDidLoad() {
         super.viewDidLoad()

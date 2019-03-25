@@ -14,11 +14,20 @@
 		1BB8ABB42212889800EB5852 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BB8ABB22212889800EB5852 /* LaunchScreen.storyboard */; };
 		1BB8ABBC221288CC00EB5852 /* VideoLaunchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB8ABBB221288CC00EB5852 /* VideoLaunchVC.swift */; };
 		6237F53422344AF200F460C2 /* splashscreen.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6237F53322344AF200F460C2 /* splashscreen.mp4 */; };
+		993542AF22495E7800BA4727 /* schedule.png in Resources */ = {isa = PBXBuildFile; fileRef = 993542AE22495E7800BA4727 /* schedule.png */; };
+		993542B12249627E00BA4727 /* workshops.png in Resources */ = {isa = PBXBuildFile; fileRef = 993542B02249627E00BA4727 /* workshops.png */; };
 		99421A4E22357ED7005604CF /* RegController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99421A4D22357ED7005604CF /* RegController.swift */; };
+		998049D2224958FF00A88055 /* eventSpeakers.png in Resources */ = {isa = PBXBuildFile; fileRef = 998049D1224958FF00A88055 /* eventSpeakers.png */; };
 		99960D1C224514E70002F496 /* Iconnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99960D1B224514E70002F496 /* Iconnection.swift */; };
 		99960D26224541C30002F496 /* SpeakerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99960D25224541C30002F496 /* SpeakerTableViewController.swift */; };
 		99A5345422478200002C950A /* TableWorkshops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A5345322478200002C950A /* TableWorkshops.swift */; };
 		99A5345A2247854A002C950A /* workshop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A534592247854A002C950A /* workshop.swift */; };
+		99A64EDA22497E4D0062AD94 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 99A64ED922497E4D0062AD94 /* info.png */; };
+		99A64EDF22497F450062AD94 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 99A64EDB22497F440062AD94 /* logo.png */; };
+		99A64EE022497F450062AD94 /* checkin.png in Resources */ = {isa = PBXBuildFile; fileRef = 99A64EDC22497F440062AD94 /* checkin.png */; };
+		99A64EE122497F450062AD94 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 99A64EDD22497F440062AD94 /* background.png */; };
+		99A64EE222497F450062AD94 /* checkout.png in Resources */ = {isa = PBXBuildFile; fileRef = 99A64EDE22497F440062AD94 /* checkout.png */; };
+		99A64EE4224982DA0062AD94 /* mystery-man-square.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 99A64EE3224982DA0062AD94 /* mystery-man-square.jpg */; };
 		99B9DAD42247F0900066F4DD /* LargeCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B9DAD32247F0900066F4DD /* LargeCellViewController.swift */; };
 		99B9DAD62248001D0066F4DD /* largeWorkshopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B9DAD52248001D0066F4DD /* largeWorkshopViewController.swift */; };
 		99CE217D2246327000314F08 /* Speakers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE217C2246327000314F08 /* Speakers.swift */; };
@@ -38,11 +47,20 @@
 		1BB8ABBB221288CC00EB5852 /* VideoLaunchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLaunchVC.swift; sourceTree = "<group>"; };
 		367410A71922BF5EEACF6E46 /* Pods_startUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_startUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6237F53322344AF200F460C2 /* splashscreen.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = splashscreen.mp4; sourceTree = "<group>"; };
+		993542AE22495E7800BA4727 /* schedule.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = schedule.png; sourceTree = "<group>"; };
+		993542B02249627E00BA4727 /* workshops.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = workshops.png; path = VideoInLaunchScreen/workshops.png; sourceTree = SOURCE_ROOT; };
 		99421A4D22357ED7005604CF /* RegController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegController.swift; sourceTree = "<group>"; };
+		998049D1224958FF00A88055 /* eventSpeakers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = eventSpeakers.png; path = VideoInLaunchScreen/eventSpeakers.png; sourceTree = SOURCE_ROOT; };
 		99960D1B224514E70002F496 /* Iconnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Iconnection.swift; sourceTree = "<group>"; };
 		99960D25224541C30002F496 /* SpeakerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpeakerTableViewController.swift; path = "/Users/mnp160/Documents/swiftApp2.0/iOS-StartUpWeekend-master/VideoInLaunchScreen/VideoInLaunchScreen/Cotrollers/SpeakerTableViewController.swift"; sourceTree = "<absolute>"; };
 		99A5345322478200002C950A /* TableWorkshops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableWorkshops.swift; sourceTree = "<group>"; };
 		99A534592247854A002C950A /* workshop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = workshop.swift; sourceTree = "<group>"; };
+		99A64ED922497E4D0062AD94 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
+		99A64EDB22497F440062AD94 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		99A64EDC22497F440062AD94 /* checkin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkin.png; sourceTree = "<group>"; };
+		99A64EDD22497F440062AD94 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		99A64EDE22497F440062AD94 /* checkout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkout.png; sourceTree = "<group>"; };
+		99A64EE3224982DA0062AD94 /* mystery-man-square.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "mystery-man-square.jpg"; sourceTree = "<group>"; };
 		99B9DAD32247F0900066F4DD /* LargeCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCellViewController.swift; sourceTree = "<group>"; };
 		99B9DAD52248001D0066F4DD /* largeWorkshopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = largeWorkshopViewController.swift; sourceTree = "<group>"; };
 		99CE217C2246327000314F08 /* Speakers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speakers.swift; sourceTree = "<group>"; };
@@ -87,6 +105,13 @@
 			children = (
 				99421A4C22357E4A005604CF /* Cotrollers */,
 				1BB8ABAD2212889600EB5852 /* Main.storyboard */,
+				99A64EE3224982DA0062AD94 /* mystery-man-square.jpg */,
+				99A64EDD22497F440062AD94 /* background.png */,
+				99A64EDC22497F440062AD94 /* checkin.png */,
+				99A64EDE22497F440062AD94 /* checkout.png */,
+				99A64EDB22497F440062AD94 /* logo.png */,
+				99A64ED922497E4D0062AD94 /* info.png */,
+				993542AE22495E7800BA4727 /* schedule.png */,
 				1BB8ABB02212889800EB5852 /* Assets.xcassets */,
 				1BB8ABB22212889800EB5852 /* LaunchScreen.storyboard */,
 				1BB8ABB52212889800EB5852 /* Info.plist */,
@@ -108,15 +133,17 @@
 			isa = PBXGroup;
 			children = (
 				99421A4D22357ED7005604CF /* RegController.swift */,
+				99B9DAD52248001D0066F4DD /* largeWorkshopViewController.swift */,
+				993542B02249627E00BA4727 /* workshops.png */,
 				99960D25224541C30002F496 /* SpeakerTableViewController.swift */,
 				99A5345322478200002C950A /* TableWorkshops.swift */,
-				99B9DAD52248001D0066F4DD /* largeWorkshopViewController.swift */,
 				99B9DAD32247F0900066F4DD /* LargeCellViewController.swift */,
 				99A534592247854A002C950A /* workshop.swift */,
 				99CE217C2246327000314F08 /* Speakers.swift */,
 				99CE217E2246362D00314F08 /* Users.swift */,
 				1BB8ABBB221288CC00EB5852 /* VideoLaunchVC.swift */,
 				99E680EE2243BC4D00BCA754 /* GoogleService-Info.plist */,
+				998049D1224958FF00A88055 /* eventSpeakers.png */,
 				1BB8ABA92212889600EB5852 /* AppDelegate.swift */,
 				1BB8ABAB2212889600EB5852 /* ViewController.swift */,
 			);
@@ -192,8 +219,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				993542B12249627E00BA4727 /* workshops.png in Resources */,
+				99A64EE122497F450062AD94 /* background.png in Resources */,
+				993542AF22495E7800BA4727 /* schedule.png in Resources */,
+				99A64EDA22497E4D0062AD94 /* info.png in Resources */,
+				998049D2224958FF00A88055 /* eventSpeakers.png in Resources */,
+				99A64EE4224982DA0062AD94 /* mystery-man-square.jpg in Resources */,
+				99A64EE022497F450062AD94 /* checkin.png in Resources */,
 				99E680F02243BCE100BCA754 /* GoogleService-Info.plist in Resources */,
+				99A64EE222497F450062AD94 /* checkout.png in Resources */,
 				1BB8ABB42212889800EB5852 /* LaunchScreen.storyboard in Resources */,
+				99A64EDF22497F450062AD94 /* logo.png in Resources */,
 				1BB8ABB12212889800EB5852 /* Assets.xcassets in Resources */,
 				6237F53422344AF200F460C2 /* splashscreen.mp4 in Resources */,
 				1BB8ABAF2212889600EB5852 /* Main.storyboard in Resources */,

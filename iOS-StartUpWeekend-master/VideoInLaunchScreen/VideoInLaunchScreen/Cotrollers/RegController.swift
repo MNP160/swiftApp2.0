@@ -221,15 +221,18 @@ class RegController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         Auth.auth().addStateDidChangeListener { auth, user in
             if let user = user {
-                self.registerLabel.text? = "Wow, this shit works"
+               
                 self.performSegue(withIdentifier: "loginSuccess", sender: self)
             } else {
-                self.registerLabel.text? = "Please register we pedal"
+                
             }
         }
+        
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
+    }
     
 
 }
