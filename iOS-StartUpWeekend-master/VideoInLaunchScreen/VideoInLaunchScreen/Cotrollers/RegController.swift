@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+
+
 class checkBox:UIButton{
     var isChecked: Bool = false {
         didSet{
@@ -46,6 +48,8 @@ class RegController: UIViewController {
     
     @IBOutlet weak var tapLabel: UILabel!
     
+    @IBOutlet weak var registerLabel: UILabel!
+   
     @IBOutlet weak var acceptBtn: checkBox!
     
     @IBOutlet weak var userNameTxt: UITextField!
@@ -61,8 +65,8 @@ class RegController: UIViewController {
     func verifyInput(username: String, email:String, password:String) -> Bool{
         
         ref=Database.database().reference()
-        
-        databaseHande = ref?.child("Keys").observe(.value, with: { (snapshot) in
+        ref?.child("Keys").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+       // databaseHande = ref?.child("Keys").observe(.value, with: { (snapshot) in
             
             for child in snapshot.children {
                 let snap = child as! DataSnapshot
@@ -86,35 +90,78 @@ class RegController: UIViewController {
         ref=Database.database().reference()
         
         let username=userNameTxt.text
-        let email = emailTxt.text
         let password = passTxt.text
         
-        verifyInput(username: username!, email: email!, password: password!)
-                                                                        //opravi ! shtoto lo6o
-        //print("Just in case - krastavica \(verifyInput(username: username!, email: email!, password: password!))")
         
+        ref.queryOrdered(byChild: "Keys").queryEqual(toValue: self.passTxt.text).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            
+            
+            
+            
+            if (username!.count != 0 && isValidEmail(testStr: self.emailTxt.text!))
+                {
+                    Auth.auth().createUser(withEmail:self.emailTxt.text!,password:self.passTxt.text!,completion:{(user,error) in
+                        
+                        if user != nil{
+                            //success
+                            
+                            self.performSegue(withIdentifier: "loginSuccess", sender: self)
+                        }
+                            
+                        else{
+                            //fail
+                            
+                            let alertController = UIAlertController(title: "Registration Failed", message:
+                                "Please Input Data Correctly", preferredStyle: .alert)
+                            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                            
+                            self.present(alertController, animated: true, completion: nil)
+                            
+                            
+                        }
+                        
+                    })
+                    
+                    print("wtf is going on TRUE")
+               
+                }
+                else{
+                    
+                       print("wtf is going on FALSE")
+                }
         
-        if verifyInput(username: username!, email: email!, password: password!) && acceptBtn.isChecked{
+          
+         
+            
+        })
+
+   /*
+        let test = verifyInput(username: username!, email: email!, password: password!)
+        print("Tova e dobro\(test)")
+        if test && acceptBtn.isChecked{
             Auth.auth().createUser(withEmail:email!,password:password!,completion:{(user,error) in
                 
-                if let u=user{
+                if user != nil{
                     //success
                     
                     self.performSegue(withIdentifier: "loginSuccess", sender: self)
                 }
+                    
                 else{
                     //fail
+                   
                     let alertController = UIAlertController(title: "Registration Failed", message:
                         "Please Input Data Correctly", preferredStyle: .alert)
                     alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
                     
-                    self.present(alertController, animated: true, completion: nil)
+                        self.present(alertController, animated: true, completion: nil)
                     
                     
                 }
                 
             })
-        }
+        } */
+
         
     
     }
@@ -162,9 +209,19 @@ class RegController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      
-
+        
+        
         // Do any additional setup after loading the view.
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        Auth.auth().addStateDidChangeListener { auth, user in
+            if let user = user {
+                self.registerLabel.text? = "Wow, this shit works"
+                self.performSegue(withIdentifier: "loginSuccess", sender: self)
+            } else {
+                self.registerLabel.text? = "Please register we pedal"
+            }
+        }
     }
     
     

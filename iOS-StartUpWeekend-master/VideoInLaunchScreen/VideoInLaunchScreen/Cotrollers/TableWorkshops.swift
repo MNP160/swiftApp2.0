@@ -18,9 +18,12 @@ class WorkshopTableViewCell: UITableViewCell {
     @IBOutlet weak var speakerName: UILabel!
     @IBOutlet weak var workshopTime: UILabel!
     @IBOutlet weak var workshopTitle: UILabel!
+    var currCell: Int = -1
     
 }
 class TableWorkshops: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+   
 
     var curImg:UIImage? = nil
     var curSpeaker: String? = ""
@@ -29,6 +32,7 @@ class TableWorkshops: UIViewController, UITableViewDataSource, UITableViewDelega
     var curEnrolled: String? = ""
     var curMax: String? = ""
     var curDescription: String? = ""
+    var bufferCell: Int = -1
     
     @IBOutlet weak var tableWrkShp: UITableView!
 
@@ -107,6 +111,7 @@ class TableWorkshops: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.capacityWorkshop?.text = workshopCap[indexPath.row]
             cell.enrolledWorkshop?.text = workshopCurr[indexPath.row]
             cell.workshopTitle?.text = workshopTopic[indexPath.row]
+            bufferCell = indexPath.row
             
             
             let url = URL(string: workshopImg[indexPath.row])
@@ -117,6 +122,7 @@ class TableWorkshops: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.speakerImage.layer.borderColor = UIColor.black.cgColor
             cell.speakerImage.layer.cornerRadius = cell.speakerImage.frame.height/2
             cell.speakerImage.clipsToBounds = true
+            cell.currCell = bufferCell
             
             return cell
         }
@@ -142,6 +148,7 @@ class TableWorkshops: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "largeW" {
         var ws = segue.destination as! largeWorkshopViewController
         ws.finalCapacityWorkshop=self.curMax!
         ws.finalSpeakerName=self.curSpeaker!
@@ -150,7 +157,8 @@ class TableWorkshops: UIViewController, UITableViewDataSource, UITableViewDelega
         ws.finalEnrolledWorkshop=self.curEnrolled!
         ws.finalSpeakerImage=self.curImg!
         ws.finalWorkshopDescription=self.curDescription!
-    
+        ws.finalCell = self.bufferCell
+        }
         
     }
         

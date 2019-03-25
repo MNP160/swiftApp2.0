@@ -8,15 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
-/*
-struct Headline {
-    
-    var id : Int
-    var title : String
-    var text : String
-    var image : String
-    
-}*/
+
 
 class HeadlineTableViewCell: UITableViewCell {
     
@@ -42,12 +34,15 @@ class SpeakerTableViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var speakerTbl: UITableView!
     var speakersText=[String]()
     var speakerImages = [String]()
+    var speakerNames = [String]()
     //var speakers = [Speakers]()
     var ref:DatabaseReference!
     var databaseHande:DatabaseHandle?
     
     override func viewWillAppear(_ animated: Bool) {
         
+        
+        self.speakerTbl.separatorStyle = .none
         speakerTbl.delegate=self
         speakerTbl.dataSource=self
         ref=Database.database().reference()
@@ -61,16 +56,29 @@ class SpeakerTableViewController: UIViewController, UITableViewDelegate, UITable
                 self.speakerImages.append(imageSnap.value as! String)
                 let txtSnap = snap.childSnapshot(forPath: "description")
                 self.speakersText.append(txtSnap.value as! String)
+                let nameSnap = snap.childSnapshot(forPath: "name")
+                self.speakerNames.append(nameSnap.value as! String)
                 self.speakerTbl.reloadData()
-                self.speakerTbl.separatorStyle = .none
+               
                 
             }
         })
         
         
     }
+    /*
+     var activityIndicatorView: UIActivityIndicatorView!
+    override func loadView() {
+        super.loadView()
+        
+        activityIndicatorView = UIActivityIndicatorView(style: .gray)
+        
+        tableView.backgroundView = activityIndicatorView
+    }*/
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
      
     }
 
@@ -86,7 +94,7 @@ class SpeakerTableViewController: UIViewController, UITableViewDelegate, UITable
         let cell=tableView.dequeueReusableCell(withIdentifier: "cell", for:indexPath) as! HeadlineTableViewCell
       
         cell.contentLabelController?.text = speakersText[indexPath.row]
-        cell.titleLabelController?.text = "Tashak"
+        cell.titleLabelController?.text = speakerNames[indexPath.row]
     
         let url = URL(string: speakerImages[indexPath.row])
         let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
@@ -118,6 +126,7 @@ class SpeakerTableViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "enlargeCell" {
         var vc = segue.destination as! LargeCellViewController
         vc.finalTitle = self.titleNext!
         vc.finalImg = self.img!
@@ -127,5 +136,5 @@ class SpeakerTableViewController: UIViewController, UITableViewDelegate, UITable
 }
 
 
-
+}
 

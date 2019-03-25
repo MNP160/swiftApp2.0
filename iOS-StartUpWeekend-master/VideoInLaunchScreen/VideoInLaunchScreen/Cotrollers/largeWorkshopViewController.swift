@@ -17,7 +17,7 @@ class largeWorkshopViewController: UIViewController {
     var finalWorkshopTime = ""
     var finalWorkshopTitle = ""
     var finalWorkshopDescription = ""
-    
+    var finalCell:Int = -1
     @IBOutlet weak var speakerImg: UIImageView!
     @IBOutlet weak var maxEnrolled: UILabel!
     
@@ -30,6 +30,8 @@ class largeWorkshopViewController: UIViewController {
     @IBOutlet weak var workShopTitle: UILabel!
     
     @IBAction func signInBtn(_ sender: UIButton) {
+        
+        
     }
     
     override func viewDidLoad() {
@@ -48,6 +50,7 @@ class largeWorkshopViewController: UIViewController {
         self.speakerImg.layer.borderColor = UIColor.black.cgColor
         self.speakerImg.layer.cornerRadius = speakerImg.frame.height/2
         self.speakerImg.clipsToBounds = true
+        print("Da vidim\(finalCell)")
 
         // Do any additional setup after loading the view.
     }
