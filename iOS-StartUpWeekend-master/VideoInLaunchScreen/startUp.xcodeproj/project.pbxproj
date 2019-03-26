@@ -134,7 +134,6 @@
 			children = (
 				99421A4D22357ED7005604CF /* RegController.swift */,
 				99B9DAD52248001D0066F4DD /* largeWorkshopViewController.swift */,
-				993542B02249627E00BA4727 /* workshops.png */,
 				99960D25224541C30002F496 /* SpeakerTableViewController.swift */,
 				99A5345322478200002C950A /* TableWorkshops.swift */,
 				99B9DAD32247F0900066F4DD /* LargeCellViewController.swift */,
@@ -144,6 +143,7 @@
 				1BB8ABBB221288CC00EB5852 /* VideoLaunchVC.swift */,
 				99E680EE2243BC4D00BCA754 /* GoogleService-Info.plist */,
 				998049D1224958FF00A88055 /* eventSpeakers.png */,
+				993542B02249627E00BA4727 /* workshops.png */,
 				1BB8ABA92212889600EB5852 /* AppDelegate.swift */,
 				1BB8ABAB2212889600EB5852 /* ViewController.swift */,
 			);

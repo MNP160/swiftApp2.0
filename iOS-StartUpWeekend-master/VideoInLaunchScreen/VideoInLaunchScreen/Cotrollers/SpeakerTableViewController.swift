@@ -15,11 +15,13 @@ class HeadlineTableViewCell: UITableViewCell {
     @IBOutlet weak var imageViewController: UIImageView!
     @IBOutlet weak var titleLabelController: UILabel!
     @IBOutlet weak var contentLabelController: UILabel!
+   
     
 }
 
 class SpeakerTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var activityIndicatorView: UIActivityIndicatorView!
     var desc: String? = ""
     var titleNext: String? = ""
     var img: UIImage? = nil
@@ -66,20 +68,22 @@ class SpeakerTableViewController: UIViewController, UITableViewDelegate, UITable
         
         
     }
-    /*
-     var activityIndicatorView: UIActivityIndicatorView!
+
+    
     override func loadView() {
         super.loadView()
         
         activityIndicatorView = UIActivityIndicatorView(style: .gray)
         
-        tableView.backgroundView = activityIndicatorView
-    }*/
+        speakerTbl.backgroundView = activityIndicatorView
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-     
+        self.speakerTbl.backgroundView = activityIndicatorView
+        activityIndicatorView.startAnimating()
     }
 
         
@@ -104,6 +108,7 @@ class SpeakerTableViewController: UIViewController, UITableViewDelegate, UITable
         cell.imageViewController.layer.borderColor = UIColor.black.cgColor
         cell.imageViewController.layer.cornerRadius = cell.imageViewController.frame.height/2
         cell.imageViewController.clipsToBounds = true
+        // if indexpath.row = speakerImages.count   self.activityIndicatorView.stopAnimating()
         return cell
     }
 

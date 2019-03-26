@@ -50,11 +50,16 @@ class largeWorkshopViewController: UIViewController {
     
     @IBAction func signInOutClick(_ sender: UIButton) {
         
-        ref=Database.database().reference()
+       ref=Database.database().reference()
         let wshNum = String(finalCell+1)
-    
+        var nameForEnroll: String!
         
-       
+        
+        let uID = Auth.auth().currentUser?.uid //gets currently logged UID
+        /*let userHande = ref?.child("workshops_uploads").child("Workshop" + wshNum).observeSingleEvent(of: .value, with: { (snapshot) in
+            nameForEnroll = snapshot.child(uID).value(value(forKeyPath: "name"))
+            }) //gets to the Users child of DB points to
+        */
        let databaseHande = ref?.child("workshops_uploads").child("Workshop" + wshNum).observeSingleEvent(of: .value, with: { (snapshot) in
             let enrollSnap = snapshot.childSnapshot(forPath: "currentlyEnrolled")
         
@@ -76,10 +81,11 @@ class largeWorkshopViewController: UIViewController {
         })
        
         
-      
+ 
 
         
 }
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,15 +110,21 @@ class largeWorkshopViewController: UIViewController {
         ref=Database.database().reference()
         
         let uid = Auth.auth().currentUser?.uid
-        /*
-        databaseHande = ref?.child("EnrolledinWorkshop" + wshNum).observe(.value, with: { (snapshot) in
+      /*
+        let addWS = ref?.observe(.value, with: { (snapshot) in
+            if !snapshot.hasChild("EnrolledinWorkshop" + wshNum){
+                
+            }
+            
+        })*/
+        let databaseHande = ref?.child("EnrolledinWorkshop" + wshNum).observe(.value, with: { (snapshot) in
             if snapshot.hasChild(uid!){
                 self.signInOut.setTitle("Sign Out", for: .normal)
                 
             }
          
        
-    })*/
+    })
     
 
     }

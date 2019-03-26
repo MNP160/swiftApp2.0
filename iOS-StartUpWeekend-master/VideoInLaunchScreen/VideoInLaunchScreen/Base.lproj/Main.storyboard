@@ -406,7 +406,7 @@ StartUP. Build. Sustain.</string>
         <scene sceneID="s5Y-2c-VM4">
             <objects>
                 <viewController title="ViewWorkshops Controller" id="aVy-c0-jZe" customClass="TableWorkshops" customModule="startUp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="yBl-YT-Ogt">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="yBl-YT-Ogt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -424,8 +424,8 @@ StartUP. Build. Sustain.</string>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="170" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UUD-8C-h1k">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="170" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UUD-8C-h1k">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Wcell" rowHeight="170" id="nEs-Oh-ZbE" customClass="WorkshopTableViewCell" customModule="startUp" customModuleProvider="target">
@@ -937,6 +937,6 @@ This privacy policy page was created at privacypolicytemplate.net and modified/g
         <segue reference="w2v-3x-41Y"/>
         <segue reference="Dyg-b9-Iex"/>
         <segue reference="Nxw-NC-8p2"/>
-        <segue reference="QEs-p0-6Hl"/>
+        <segue reference="YOA-Af-Iok"/>
     </inferredMetricsTieBreakers>
 </document>

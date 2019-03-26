@@ -24,7 +24,7 @@ class WorkshopTableViewCell: UITableViewCell {
 class TableWorkshops: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
    
-
+    var activityIndicatorView: UIActivityIndicatorView!
     var curImg:UIImage? = nil
     var curSpeaker: String? = ""
     var curWorkTitle: String? = ""
@@ -48,7 +48,15 @@ class TableWorkshops: UIViewController, UITableViewDataSource, UITableViewDelega
     var workshopSpeaker = [String]()
     
         override func viewDidLoad() {
+           
+            
             super.viewDidLoad()
+            //activity buffer
+            self.tableWrkShp.backgroundView = activityIndicatorView
+            activityIndicatorView.startAnimating()
+            
+            
+            
          ref=Database.database().reference()
             
           tableWrkShp.dataSource=self
@@ -163,6 +171,13 @@ class TableWorkshops: UIViewController, UITableViewDataSource, UITableViewDelega
         ws.finalCell = self.bufferCell
         }
         
+    }
+    
+    override func loadView() {
+        super.loadView()
+        
+        activityIndicatorView = UIActivityIndicatorView(style: .gray)
+        tableWrkShp.backgroundView = activityIndicatorView
     }
         
     }
