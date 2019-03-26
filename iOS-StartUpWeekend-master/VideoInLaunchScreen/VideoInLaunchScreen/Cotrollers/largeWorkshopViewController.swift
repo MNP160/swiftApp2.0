@@ -91,9 +91,9 @@ class largeWorkshopViewController: UIViewController {
         super.viewDidLoad()
         
         self.speakerImg.image=finalSpeakerImage
-        self.currEnrolled.text=finalEnrolledWorkshop
-        self.maxEnrolled.text=finalCapacityWorkshop
-        self.startTime.text=finalWorkshopTime
+        self.currEnrolled.text="Enrolled: " + finalEnrolledWorkshop
+        self.maxEnrolled.text="Capacity: " + finalCapacityWorkshop
+        self.startTime.text="Start Time: " + finalWorkshopTime
         self.workShopTitle.text=finalWorkshopTitle
         self.speakerName.text=finalSpeakerName
         self.workshopDescription.text=finalWorkshopDescription
