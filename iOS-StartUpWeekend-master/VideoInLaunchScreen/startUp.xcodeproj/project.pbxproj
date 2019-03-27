@@ -29,6 +29,7 @@
 		99B9DAD42247F0900066F4DD /* LargeCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B9DAD32247F0900066F4DD /* LargeCellViewController.swift */; };
 		99B9DAD62248001D0066F4DD /* largeWorkshopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B9DAD52248001D0066F4DD /* largeWorkshopViewController.swift */; };
 		99E680F02243BCE100BCA754 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99E680EE2243BC4D00BCA754 /* GoogleService-Info.plist */; };
+		99F08C86224C0CA800BB40C5 /* Icon in Resources */ = {isa = PBXBuildFile; fileRef = 99F08C85224C0CA800BB40C5 /* Icon */; };
 		B0BC7E03FBE9294936BD5D9B /* Pods_startUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367410A71922BF5EEACF6E46 /* Pods_startUp.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		99B9DAD32247F0900066F4DD /* LargeCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCellViewController.swift; sourceTree = "<group>"; };
 		99B9DAD52248001D0066F4DD /* largeWorkshopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = largeWorkshopViewController.swift; sourceTree = "<group>"; };
 		99E680EE2243BC4D00BCA754 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		99F08C85224C0CA800BB40C5 /* Icon */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Icon; path = ../../Icon; sourceTree = "<group>"; };
 		A4A82B6A02076E37558E8CB4 /* Pods-startUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-startUp.debug.xcconfig"; path = "Target Support Files/Pods-startUp/Pods-startUp.debug.xcconfig"; sourceTree = "<group>"; };
 		CEE991CEDCECC7B11B858024 /* Pods-startUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-startUp.release.xcconfig"; path = "Target Support Files/Pods-startUp/Pods-startUp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +107,7 @@
 				99A64ED922497E4D0062AD94 /* info.png */,
 				993542AE22495E7800BA4727 /* schedule.png */,
 				1BB8ABB02212889800EB5852 /* Assets.xcassets */,
+				99F08C85224C0CA800BB40C5 /* Icon */,
 				1BB8ABB22212889800EB5852 /* LaunchScreen.storyboard */,
 				1BB8ABB52212889800EB5852 /* Info.plist */,
 				6237F53322344AF200F460C2 /* splashscreen.mp4 */,
@@ -221,6 +224,7 @@
 				1BB8ABB12212889800EB5852 /* Assets.xcassets in Resources */,
 				6237F53422344AF200F460C2 /* splashscreen.mp4 in Resources */,
 				1BB8ABAF2212889600EB5852 /* Main.storyboard in Resources */,
+				99F08C86224C0CA800BB40C5 /* Icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
