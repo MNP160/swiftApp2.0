@@ -54,23 +54,17 @@ class TableWorkshops: UIViewController, UITableViewDataSource, UITableViewDelega
             //activity buffer
             self.tableWrkShp.backgroundView = activityIndicatorView
             activityIndicatorView.startAnimating()
+            ref=Database.database().reference()
             
-            
-            
-         ref=Database.database().reference()
-            
-          tableWrkShp.dataSource=self
-          tableWrkShp.delegate=self
-          tableWrkShp.separatorColor=UIColor(white : 0.95, alpha:1)
+            tableWrkShp.dataSource=self
+            tableWrkShp.delegate=self
+            tableWrkShp.separatorColor=UIColor(white : 0.95, alpha:1)
             
             databaseHande = ref?.child("workshops_uploads").observe(.value, with: { (snapshot) in
-                
-                print("main snapshot: \(snapshot)")
+            
                 for child in snapshot.children {
                     let snap = child as! DataSnapshot
                    // let workshop = Workshop(capacityOfWorkshop: "", currentlyEnrolled: "", description: "", imageURL: "", time: "", topic: "")
-                    
-                    
                     let imageSnap = snap.childSnapshot(forPath: "imageURL")
                     self.workshopImg.append(imageSnap.value as! String)
                     let speakerSnap = snap.childSnapshot(forPath: "facilitator")
@@ -86,22 +80,8 @@ class TableWorkshops: UIViewController, UITableViewDataSource, UITableViewDelega
                     self.workshopStartTime.append(timeSnap.value as! String)
                     let topicSnap = snap.childSnapshot(forPath: "topic")
                     self.workshopTopic.append(topicSnap.value as! String)
-                    //workshop.setCapacity(capacity: capacitySnap.value as! String)
-                    //workshop.setCurEnrolled(enrolled: currESnap.value as! String)
-                    //workshop.setTime(time: timeSnap.value as! String)
-                    //workshop.setTopic(topic: topicSnap.value as! String)
-                    /*self.workshopImg.append(imgPath)
-                    self.workshopDesc.append(desc)
-                    self.workshopCap.append(cap)
-                    self.workshopCurr.append(currentE)
-                    self.workshopTime.append(time)
-                    self.workshopTopic.append(topic)*/
                     self.tableWrkShp.reloadData()
                     }
-
-                    // self.speakerImages.append(imageSnap.value as! String)
-                    //self.speakersText.append(txtSnap.value as! String)
-                   //self.speakerTbl.reloadData()
                 
             })
             
@@ -160,7 +140,7 @@ class TableWorkshops: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.identifier == "largeW" {
-        var ws = segue.destination as! largeWorkshopViewController
+            var ws = segue.destination as! largeWorkshopViewController 
         ws.finalCapacityWorkshop=self.curMax!
         ws.finalSpeakerName=self.curSpeaker!
         ws.finalWorkshopTitle=self.curWorkTitle!

@@ -24,8 +24,8 @@ class largeWorkshopViewController: UIViewController {
    
     
     var ref:DatabaseReference!
-  
-    
+    var userHandle: DatabaseHandle?
+   
     @IBOutlet weak var signInOut: UIButton!
     
     var finalSpeakerImage:UIImage? = nil
@@ -36,6 +36,7 @@ class largeWorkshopViewController: UIViewController {
     var finalWorkshopTitle = ""
     var finalWorkshopDescription = ""
     var finalCell:Int = -1
+    var userNameCheating = [String]()
     
     @IBOutlet weak var speakerImg: UIImageView!
     @IBOutlet weak var maxEnrolled: UILabel!
@@ -45,28 +46,35 @@ class largeWorkshopViewController: UIViewController {
     
     @IBOutlet weak var workshopDescription: UITextView!
     
+    
     @IBOutlet weak var currEnrolled: UILabel!
     @IBOutlet weak var workShopTitle: UILabel!
     
     @IBAction func signInOutClick(_ sender: UIButton) {
         
-       ref=Database.database().reference()
+        ref=Database.database().reference()
+        
         let wshNum = String(finalCell+1)
-        var nameForEnroll: String!
+        
         
         
         let uID = Auth.auth().currentUser?.uid //gets currently logged UID
-        /*let userHande = ref?.child("workshops_uploads").child("Workshop" + wshNum).observeSingleEvent(of: .value, with: { (snapshot) in
-            nameForEnroll = snapshot.child(uID).value(value(forKeyPath: "name"))
-            }) //gets to the Users child of DB points to
-        */
-       let databaseHande = ref?.child("workshops_uploads").child("Workshop" + wshNum).observeSingleEvent(of: .value, with: { (snapshot) in
+        
+        _ = ref?.child("Users").child(uID!).observe( .value, with: { (snapshot) in // this is very ugly, I apologize
+        
+            
+        })
+        
+    
+        //print("e sq ta hvanah, mrasni usare - \(self.userIDCheating.text)")
+        _ = ref?.child("workshops_uploads").child("Workshop" + wshNum).observeSingleEvent(of: .value, with: { (snapshot) in
             let enrollSnap = snapshot.childSnapshot(forPath: "currentlyEnrolled")
         
-        if self.signInOut.titleLabel?.text == "Sign In" && self.toInt(s: enrollSnap.value as! String) < self.toInt(s: self.finalCapacityWorkshop){ //checks the button state
+            if self.signInOut.titleLabel?.text == "Sign In" && self.toInt(s: enrollSnap.value as? String) < self.toInt(s: self.finalCapacityWorkshop){ //checks the button state
             let commitValue = String(self.toInt(s: enrollSnap.value as? String)+1)
             self.ref.child("workshops_uploads").child("Workshop" + wshNum).child("currentlyEnrolled").setValue(commitValue)
-            self.currEnrolled.text = commitValue
+            //self.ref.child("EnrolledinWorkshop" + wshNum).child(uID!).setValue(["name": uName]) // testing write
+            self.currEnrolled.text = "Enrolled: " + commitValue
             self.signInOut.setTitle("Sign Out", for: .normal)
         }
         else //switches the button back
@@ -74,7 +82,7 @@ class largeWorkshopViewController: UIViewController {
             let commitValue = String(self.toInt(s: enrollSnap.value as? String)-1)
             self.ref.child("workshops_uploads").child("Workshop" + wshNum).child("currentlyEnrolled").setValue(commitValue)
             self.currEnrolled.text = commitValue
-            self.signInOut.setTitle("Sign Out", for: .normal)
+            self.currEnrolled.text = "Enrolled: " + commitValue
             self.signInOut.setTitle("Sign In", for: .normal)
         }
         
@@ -117,7 +125,7 @@ class largeWorkshopViewController: UIViewController {
             }
             
         })*/
-        let databaseHande = ref?.child("EnrolledinWorkshop" + wshNum).observe(.value, with: { (snapshot) in
+        _ = ref?.child("EnrolledinWorkshop" + wshNum).observe(.value, with: { (snapshot) in
             if snapshot.hasChild(uid!){
                 self.signInOut.setTitle("Sign Out", for: .normal)
                 

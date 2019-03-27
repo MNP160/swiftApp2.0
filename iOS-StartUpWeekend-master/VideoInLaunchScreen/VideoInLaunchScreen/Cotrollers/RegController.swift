@@ -15,9 +15,9 @@ class checkBox:UIButton{
     var isChecked: Bool = false {
         didSet{
             if isChecked == true {
-                self.setTitle("Accepted", for: UIControl.State.normal)
+                self.setBackgroundImage(UIImage(named: "checkin.png"), for: .normal)
             } else {
-                self.setTitle("NotAccepted", for: UIControl.State.normal)
+                self.setBackgroundImage(UIImage(named: "checkout.png"), for: .normal)
             }
         }
     }
@@ -127,12 +127,12 @@ class RegController: UIViewController {
                         
                     })
                     
-                    print("wtf is going on TRUE")
+                
                
                 }
                 else{
                     
-                       print("wtf is going on FALSE")
+    
                 }
         
           
@@ -140,32 +140,7 @@ class RegController: UIViewController {
             
         })
 
-   /*
-        let test = verifyInput(username: username!, email: email!, password: password!)
-        print("Tova e dobro\(test)")
-        if test && acceptBtn.isChecked{
-            Auth.auth().createUser(withEmail:email!,password:password!,completion:{(user,error) in
-                
-                if user != nil{
-                    //success
-                    
-                    self.performSegue(withIdentifier: "loginSuccess", sender: self)
-                }
-                    
-                else{
-                    //fail
-                   
-                    let alertController = UIAlertController(title: "Registration Failed", message:
-                        "Please Input Data Correctly", preferredStyle: .alert)
-                    alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
-                    
-                        self.present(alertController, animated: true, completion: nil)
-                    
-                    
-                }
-                
-            })
-        } */
+ 
 
         
     
@@ -182,11 +157,7 @@ class RegController: UIViewController {
         popOverVC.didMove(toParent: self)
         self.showAnimate()
     }
-    /*
-    @IBAction func closeTerms(_ sender: UIButton) {
-        self.removeAnimate()
-    }
-    */
+   
     
     func showAnimate()
     {
@@ -220,18 +191,16 @@ class RegController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         Auth.auth().addStateDidChangeListener { auth, user in
-            if let user = user {
-               
-                self.performSegue(withIdentifier: "loginSuccess", sender: self)
+            if user != nil {
+               self.performSegue(withIdentifier: "loginSuccess", sender: self)
             } else {
                 
             }
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
+        
     }
     
 

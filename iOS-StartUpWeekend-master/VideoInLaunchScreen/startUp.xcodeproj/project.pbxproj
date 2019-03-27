@@ -18,10 +18,8 @@
 		993542B12249627E00BA4727 /* workshops.png in Resources */ = {isa = PBXBuildFile; fileRef = 993542B02249627E00BA4727 /* workshops.png */; };
 		99421A4E22357ED7005604CF /* RegController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99421A4D22357ED7005604CF /* RegController.swift */; };
 		998049D2224958FF00A88055 /* eventSpeakers.png in Resources */ = {isa = PBXBuildFile; fileRef = 998049D1224958FF00A88055 /* eventSpeakers.png */; };
-		99960D1C224514E70002F496 /* Iconnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99960D1B224514E70002F496 /* Iconnection.swift */; };
 		99960D26224541C30002F496 /* SpeakerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99960D25224541C30002F496 /* SpeakerTableViewController.swift */; };
 		99A5345422478200002C950A /* TableWorkshops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A5345322478200002C950A /* TableWorkshops.swift */; };
-		99A5345A2247854A002C950A /* workshop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A534592247854A002C950A /* workshop.swift */; };
 		99A64EDA22497E4D0062AD94 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 99A64ED922497E4D0062AD94 /* info.png */; };
 		99A64EDF22497F450062AD94 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 99A64EDB22497F440062AD94 /* logo.png */; };
 		99A64EE022497F450062AD94 /* checkin.png in Resources */ = {isa = PBXBuildFile; fileRef = 99A64EDC22497F440062AD94 /* checkin.png */; };
@@ -30,8 +28,6 @@
 		99A64EE4224982DA0062AD94 /* mystery-man-square.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 99A64EE3224982DA0062AD94 /* mystery-man-square.jpg */; };
 		99B9DAD42247F0900066F4DD /* LargeCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B9DAD32247F0900066F4DD /* LargeCellViewController.swift */; };
 		99B9DAD62248001D0066F4DD /* largeWorkshopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B9DAD52248001D0066F4DD /* largeWorkshopViewController.swift */; };
-		99CE217D2246327000314F08 /* Speakers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE217C2246327000314F08 /* Speakers.swift */; };
-		99CE217F2246362D00314F08 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CE217E2246362D00314F08 /* Users.swift */; };
 		99E680F02243BCE100BCA754 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99E680EE2243BC4D00BCA754 /* GoogleService-Info.plist */; };
 		B0BC7E03FBE9294936BD5D9B /* Pods_startUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367410A71922BF5EEACF6E46 /* Pods_startUp.framework */; };
 /* End PBXBuildFile section */
@@ -51,10 +47,8 @@
 		993542B02249627E00BA4727 /* workshops.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = workshops.png; path = VideoInLaunchScreen/workshops.png; sourceTree = SOURCE_ROOT; };
 		99421A4D22357ED7005604CF /* RegController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegController.swift; sourceTree = "<group>"; };
 		998049D1224958FF00A88055 /* eventSpeakers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = eventSpeakers.png; path = VideoInLaunchScreen/eventSpeakers.png; sourceTree = SOURCE_ROOT; };
-		99960D1B224514E70002F496 /* Iconnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Iconnection.swift; sourceTree = "<group>"; };
 		99960D25224541C30002F496 /* SpeakerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpeakerTableViewController.swift; path = "/Users/mnp160/Documents/swiftApp2.0/iOS-StartUpWeekend-master/VideoInLaunchScreen/VideoInLaunchScreen/Cotrollers/SpeakerTableViewController.swift"; sourceTree = "<absolute>"; };
 		99A5345322478200002C950A /* TableWorkshops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableWorkshops.swift; sourceTree = "<group>"; };
-		99A534592247854A002C950A /* workshop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = workshop.swift; sourceTree = "<group>"; };
 		99A64ED922497E4D0062AD94 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		99A64EDB22497F440062AD94 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		99A64EDC22497F440062AD94 /* checkin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkin.png; sourceTree = "<group>"; };
@@ -63,8 +57,6 @@
 		99A64EE3224982DA0062AD94 /* mystery-man-square.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "mystery-man-square.jpg"; sourceTree = "<group>"; };
 		99B9DAD32247F0900066F4DD /* LargeCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCellViewController.swift; sourceTree = "<group>"; };
 		99B9DAD52248001D0066F4DD /* largeWorkshopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = largeWorkshopViewController.swift; sourceTree = "<group>"; };
-		99CE217C2246327000314F08 /* Speakers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speakers.swift; sourceTree = "<group>"; };
-		99CE217E2246362D00314F08 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		99E680EE2243BC4D00BCA754 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A4A82B6A02076E37558E8CB4 /* Pods-startUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-startUp.debug.xcconfig"; path = "Target Support Files/Pods-startUp/Pods-startUp.debug.xcconfig"; sourceTree = "<group>"; };
 		CEE991CEDCECC7B11B858024 /* Pods-startUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-startUp.release.xcconfig"; path = "Target Support Files/Pods-startUp/Pods-startUp.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,7 +108,6 @@
 				1BB8ABB22212889800EB5852 /* LaunchScreen.storyboard */,
 				1BB8ABB52212889800EB5852 /* Info.plist */,
 				6237F53322344AF200F460C2 /* splashscreen.mp4 */,
-				99960D1B224514E70002F496 /* Iconnection.swift */,
 			);
 			path = VideoInLaunchScreen;
 			sourceTree = "<group>";
@@ -134,12 +125,9 @@
 			children = (
 				99421A4D22357ED7005604CF /* RegController.swift */,
 				99B9DAD52248001D0066F4DD /* largeWorkshopViewController.swift */,
-				99960D25224541C30002F496 /* SpeakerTableViewController.swift */,
 				99A5345322478200002C950A /* TableWorkshops.swift */,
+				99960D25224541C30002F496 /* SpeakerTableViewController.swift */,
 				99B9DAD32247F0900066F4DD /* LargeCellViewController.swift */,
-				99A534592247854A002C950A /* workshop.swift */,
-				99CE217C2246327000314F08 /* Speakers.swift */,
-				99CE217E2246362D00314F08 /* Users.swift */,
 				1BB8ABBB221288CC00EB5852 /* VideoLaunchVC.swift */,
 				99E680EE2243BC4D00BCA754 /* GoogleService-Info.plist */,
 				998049D1224958FF00A88055 /* eventSpeakers.png */,
@@ -296,14 +284,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99CE217F2246362D00314F08 /* Users.swift in Sources */,
 				99A5345422478200002C950A /* TableWorkshops.swift in Sources */,
 				99960D26224541C30002F496 /* SpeakerTableViewController.swift in Sources */,
-				99960D1C224514E70002F496 /* Iconnection.swift in Sources */,
-				99CE217D2246327000314F08 /* Speakers.swift in Sources */,
 				99B9DAD62248001D0066F4DD /* largeWorkshopViewController.swift in Sources */,
 				99B9DAD42247F0900066F4DD /* LargeCellViewController.swift in Sources */,
-				99A5345A2247854A002C950A /* workshop.swift in Sources */,
 				99421A4E22357ED7005604CF /* RegController.swift in Sources */,
 				1BB8ABAC2212889600EB5852 /* ViewController.swift in Sources */,
 				1BB8ABBC221288CC00EB5852 /* VideoLaunchVC.swift in Sources */,
