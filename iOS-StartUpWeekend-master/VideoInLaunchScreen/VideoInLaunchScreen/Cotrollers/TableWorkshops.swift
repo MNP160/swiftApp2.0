@@ -46,7 +46,8 @@ class TableWorkshops: UIViewController, UITableViewDataSource, UITableViewDelega
     var workshopImg=[String]()
     var workshopTopic=[String]()
     var workshopSpeaker = [String]()
-    
+    var workshops=[Workshops]()
+    var currWorkshop: Workshops?
         override func viewDidLoad() {
            
             
@@ -60,26 +61,13 @@ class TableWorkshops: UIViewController, UITableViewDataSource, UITableViewDelega
             tableWrkShp.delegate=self
             tableWrkShp.separatorColor=UIColor(white : 0.95, alpha:1)
             
-            databaseHande = ref?.child("workshops_uploads").observe(.value, with: { (snapshot) in
+            ref?.child("workshops_uploads").observeSingleEvent(of: .value, with: { (snapshot) in
             
                 for child in snapshot.children {
                     let snap = child as! DataSnapshot
-                   // let workshop = Workshop(capacityOfWorkshop: "", currentlyEnrolled: "", description: "", imageURL: "", time: "", topic: "")
-                    let imageSnap = snap.childSnapshot(forPath: "imageURL")
-                    self.workshopImg.append(imageSnap.value as! String)
-                    let speakerSnap = snap.childSnapshot(forPath: "facilitator")
-                    self.workshopSpeaker.append(speakerSnap.value as! String)
-                    let txtSnap = snap.childSnapshot(forPath: "description")
-                    self.workshopDesc.append(txtSnap.value as! String)
-                    //workshop.setDescription(description: txtSnap.value as! String)
-                    let capacitySnap = snap.childSnapshot(forPath: "capacityOfWorkshop")
-                    self.workshopCap.append(capacitySnap.value as! String)
-                    let currESnap = snap.childSnapshot(forPath: "currentlyEnrolled")
-                    self.workshopCurr.append(currESnap.value as! String)
-                    let timeSnap = snap.childSnapshot(forPath: "time")
-                    self.workshopStartTime.append(timeSnap.value as! String)
-                    let topicSnap = snap.childSnapshot(forPath: "topic")
-                    self.workshopTopic.append(topicSnap.value as! String)
+                    let workshop = Workshops(snapshot:snap as! DataSnapshot)
+                    self.workshops.append(workshop)
+                    
                     self.tableWrkShp.reloadData()
                     }
                 
@@ -88,23 +76,23 @@ class TableWorkshops: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return workshopTopic.count
+            return workshops.count
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell=tableView.dequeueReusableCell(withIdentifier: "Wcell", for:indexPath) as! WorkshopTableViewCell
             
-            cell.speakerName?.text = workshopSpeaker[indexPath.row]
-            cell.workshopTime?.text = workshopStartTime[indexPath.row]
-            cell.capacityWorkshop?.text = workshopCap[indexPath.row]
-            cell.enrolledWorkshop?.text = workshopCurr[indexPath.row]
-            cell.workshopTitle?.text = workshopTopic[indexPath.row]
+            cell.speakerName?.text = workshops[indexPath.row].getName()
+            cell.workshopTime?.text = workshops[indexPath.row].getTime()
+            cell.capacityWorkshop?.text = workshops[indexPath.row].getCapacity()
+            cell.enrolledWorkshop?.text = workshops[indexPath.row].getCurEnrolled()
+            cell.workshopTitle?.text = workshops[indexPath.row].getTopic()
             cell.currCell = indexPath.row
             
-            
+            /*
             let url = URL(string: workshopImg[indexPath.row])
-            let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-            cell.speakerImage.image = UIImage(data: data!)
+            let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch*/
+            cell.speakerImage.image = workshops[indexPath.row].getImage()
             cell.speakerImage.layer.borderWidth = 1
             cell.speakerImage.layer.masksToBounds = false
             cell.speakerImage.layer.borderColor = UIColor.black.cgColor
@@ -125,13 +113,14 @@ class TableWorkshops: UIViewController, UITableViewDataSource, UITableViewDelega
         let wImgCell=cell.speakerImage?.image
         let selectedCell = cell.currCell
         
-        self.curDescription = workshopDesc[indexPath.row]
-        self.curImg=wImgCell!
-        self.curEnrolled=Ecell!
-        self.curMax=maxrCell!
-        self.curWorkTime=timeCell!
-        self.curWorkTitle=titleCell!
-        self.curSpeaker=nameCell!
+        self.currWorkshop = Workshops(capacity: maxrCell!, enrolled: Ecell!, time: timeCell!, topic: titleCell!, name: nameCell!, image: workshops[indexPath.row].getImagePath(), desc: workshops[indexPath.row].getDescription())
+        self.curDescription = workshops[indexPath.row].getDescription()
+        self.curImg = wImgCell!
+        self.curEnrolled = Ecell!
+        self.curMax = maxrCell!
+        self.curWorkTime = timeCell!
+        self.curWorkTitle = titleCell!
+        self.curSpeaker = nameCell!
         self.bufferCell = selectedCell
         
         
@@ -141,14 +130,9 @@ class TableWorkshops: UIViewController, UITableViewDataSource, UITableViewDelega
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.identifier == "largeW" {
             var ws = segue.destination as! largeWorkshopViewController 
-        ws.finalCapacityWorkshop=self.curMax!
-        ws.finalSpeakerName=self.curSpeaker!
-        ws.finalWorkshopTitle=self.curWorkTitle!
-        ws.finalWorkshopTime=self.curWorkTime!
-        ws.finalEnrolledWorkshop=self.curEnrolled!
-        ws.finalSpeakerImage=self.curImg!
-        ws.finalWorkshopDescription=self.curDescription!
+       
         ws.finalCell = self.bufferCell
+        ws.finalWorkshop = self.currWorkshop
         }
         
     }

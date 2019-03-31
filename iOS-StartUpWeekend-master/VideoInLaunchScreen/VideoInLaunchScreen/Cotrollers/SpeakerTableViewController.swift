@@ -37,9 +37,10 @@ class SpeakerTableViewController: UIViewController, UITableViewDelegate, UITable
     var speakersText=[String]()
     var speakerImages = [String]()
     var speakerNames = [String]()
-    //var speakers = [Speakers]()
+    var speakers = [Speakers]()
     var ref:DatabaseReference!
     var databaseHande:DatabaseHandle?
+    var speaker: Speakers?
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -52,17 +53,9 @@ class SpeakerTableViewController: UIViewController, UITableViewDelegate, UITable
         databaseHande = ref?.child("teachers_uploads").observe(.value, with: { (snapshot) in
             
             for child in snapshot.children {
-                let snap = child as! DataSnapshot
-                let imageSnap = snap.childSnapshot(forPath: "imageURL")
-                //let imageURL = NSURL(string: imageSnap.value as! String)
-                self.speakerImages.append(imageSnap.value as! String)
-                let txtSnap = snap.childSnapshot(forPath: "description")
-                self.speakersText.append(txtSnap.value as! String)
-                let nameSnap = snap.childSnapshot(forPath: "name")
-                self.speakerNames.append(nameSnap.value as! String)
+                self.speaker=Speakers(snapshot: child as! DataSnapshot)
+                self.speakers.append(self.speaker!)
                 self.speakerTbl.reloadData()
-               
-                
             }
         })
         
@@ -89,7 +82,7 @@ class SpeakerTableViewController: UIViewController, UITableViewDelegate, UITable
         
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return  speakerImages.count
+        return  speakers.count
     }
     
   
@@ -97,12 +90,12 @@ class SpeakerTableViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell=tableView.dequeueReusableCell(withIdentifier: "cell", for:indexPath) as! HeadlineTableViewCell
       
-        cell.contentLabelController?.text = speakersText[indexPath.row]
-        cell.titleLabelController?.text = speakerNames[indexPath.row]
+        cell.contentLabelController?.text = speakers[indexPath.row].getDescription()
+        cell.titleLabelController?.text = speakers[indexPath.row].getName()
     
-        let url = URL(string: speakerImages[indexPath.row])
-        let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-        cell.imageViewController.image = UIImage(data: data!)
+    /*    let url = URL(string: speakerImages[indexPath.row])
+        let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch */
+        cell.imageViewController.image = speakers[indexPath.row].getImage()
         cell.imageViewController.layer.borderWidth = 1
         cell.imageViewController.layer.masksToBounds = false
         cell.imageViewController.layer.borderColor = UIColor.black.cgColor

@@ -32,7 +32,9 @@ class checkBox:UIButton{
             isChecked = !isChecked
         }
     }
-    
+    func returnState() -> Bool{
+        return isChecked
+    }
 }
 
 
@@ -46,6 +48,7 @@ func isValidEmail(testStr:String) -> Bool {
 
 class RegController: UIViewController {
     
+   
     @IBOutlet weak var tapLabel: UILabel!
     
     @IBOutlet weak var registerLabel: UILabel!
@@ -94,11 +97,7 @@ class RegController: UIViewController {
         
         
         ref.queryOrdered(byChild: "Keys").queryEqual(toValue: self.passTxt.text).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
-            
-            
-            
-            
-            if (username!.count != 0 && isValidEmail(testStr: self.emailTxt.text!))
+            if (username!.count != 0 && isValidEmail(testStr: self.emailTxt.text!) && self.acceptBtn.isChecked)
                 {
                     Auth.auth().createUser(withEmail:self.emailTxt.text!,password:self.passTxt.text!,completion:{(user,error) in
                         
@@ -110,27 +109,23 @@ class RegController: UIViewController {
                             ]
                             let uid = Auth.auth().currentUser?.uid
                             self.ref.child("Users").child(uid!).setValue(userData)
+                            self.ref.child("Keys").observeSingleEvent(of: .value, with: {(snapshot) in
+                                for child in snapshot.children{
+                                    let keySnap = snapshot.childSnapshot(forPath: "key")
+                                    print(keySnap.value as! String)
+                                    print("what we're looking for - \(self.passTxt.text)")
+                                    if keySnap.value as? String == self.passTxt.text{
+                                        keySnap.setValue("", forKey: "key")
+                                        print("yes")
+                                    }
+                                }
+                            })
                             self.performSegue(withIdentifier: "loginSuccess", sender: self)
                         }
-                            
-                        else{
-                            //fail
-                            
-                            let alertController = UIAlertController(title: "Registration Failed", message:
-                                "Please Input Data Correctly", preferredStyle: .alert)
-                            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
-                            
-                            self.present(alertController, animated: true, completion: nil)
-                            
-                            
-                        }
-                        
                     })
-                    
-                
                
                 }
-                else{
+                else{ //wrong key
                     
     
                 }
@@ -184,12 +179,15 @@ class RegController: UIViewController {
     */
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        //let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        //view.addGestureRecognizer(tap)
+        //self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+        //tap.cancelsTouchesInView = false
         
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
+        
         Auth.auth().addStateDidChangeListener { auth, user in
             if user != nil {
                self.performSegue(withIdentifier: "loginSuccess", sender: self)
@@ -197,11 +195,11 @@ class RegController: UIViewController {
                 
             }
         }
+ 
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
     }
-    
-
+   
 }

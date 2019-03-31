@@ -28,15 +28,10 @@ class largeWorkshopViewController: UIViewController {
    
     @IBOutlet weak var signInOut: UIButton!
     
-    var finalSpeakerImage:UIImage? = nil
-    var finalCapacityWorkshop = ""
-    var finalEnrolledWorkshop = ""
-    var finalSpeakerName = ""
-    var finalWorkshopTime = ""
-    var finalWorkshopTitle = ""
-    var finalWorkshopDescription = ""
     var finalCell:Int = -1
     var userNameCheating = [String]()
+    var finalWorkshop: Workshops?
+    var finalUser: Users?
     
     @IBOutlet weak var speakerImg: UIImageView!
     @IBOutlet weak var maxEnrolled: UILabel!
@@ -70,10 +65,10 @@ class largeWorkshopViewController: UIViewController {
         _ = ref?.child("workshops_uploads").child("Workshop" + wshNum).observeSingleEvent(of: .value, with: { (snapshot) in
             let enrollSnap = snapshot.childSnapshot(forPath: "currentlyEnrolled")
         
-            if self.signInOut.titleLabel?.text == "Sign In" && self.toInt(s: enrollSnap.value as? String) < self.toInt(s: self.finalCapacityWorkshop){ //checks the button state
+            if self.signInOut.titleLabel?.text == "Sign In" && self.toInt(s: enrollSnap.value as? String) < self.toInt(s: self.finalWorkshop?.getCapacity()){ //checks the button state
             let commitValue = String(self.toInt(s: enrollSnap.value as? String)+1)
             self.ref.child("workshops_uploads").child("Workshop" + wshNum).child("currentlyEnrolled").setValue(commitValue)
-            //self.ref.child("EnrolledinWorkshop" + wshNum).child(uID!).setValue(["name": uName]) // testing write
+                self.ref.child("EnrolledinWorkshop" + wshNum).child(uID!).setValue(["name": self.finalUser?.getName()]) // testing write
             self.currEnrolled.text = "Enrolled: " + commitValue
             self.signInOut.setTitle("Sign Out", for: .normal)
         }
@@ -82,6 +77,7 @@ class largeWorkshopViewController: UIViewController {
             let commitValue = String(self.toInt(s: enrollSnap.value as? String)-1)
             self.ref.child("workshops_uploads").child("Workshop" + wshNum).child("currentlyEnrolled").setValue(commitValue)
             self.currEnrolled.text = commitValue
+            self.ref.child("EnrolledinWorkshop" + wshNum).child(uID!).removeValue()
             self.currEnrolled.text = "Enrolled: " + commitValue
             self.signInOut.setTitle("Sign In", for: .normal)
         }
@@ -98,42 +94,41 @@ class largeWorkshopViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.speakerImg.image=finalSpeakerImage
-        self.currEnrolled.text="Enrolled: " + finalEnrolledWorkshop
-        self.maxEnrolled.text="Capacity: " + finalCapacityWorkshop
-        self.startTime.text="Start Time: " + finalWorkshopTime
-        self.workShopTitle.text=finalWorkshopTitle
-        self.speakerName.text=finalSpeakerName
-        self.workshopDescription.text=finalWorkshopDescription
+        self.speakerImg.image=finalWorkshop?.getImage()
+        self.currEnrolled.text="Enrolled: " + (finalWorkshop?.getCurEnrolled())!
+        self.maxEnrolled.text="Capacity: " + (finalWorkshop?.getCapacity())!
+        self.startTime.text="Start Time: " + (finalWorkshop?.getTime())!
+        self.workShopTitle.text=finalWorkshop?.getTopic()
+        self.speakerName.text=finalWorkshop?.getName()
+        self.workshopDescription.text=finalWorkshop?.getDescription()
         
         self.speakerImg.layer.borderWidth = 1
         self.speakerImg.layer.masksToBounds = false
         self.speakerImg.layer.borderColor = UIColor.black.cgColor
         self.speakerImg.layer.cornerRadius = speakerImg.frame.height/2
         self.speakerImg.clipsToBounds = true
-        //get uid
+     
+    }
+    override func viewDidAppear(_ animated: Bool) {
         
-        
-        let wshNum = String(finalCell)
+        let wshNum = String(finalCell+1)
         ref=Database.database().reference()
         
         let uid = Auth.auth().currentUser?.uid
-      /*
-        let addWS = ref?.observe(.value, with: { (snapshot) in
-            if !snapshot.hasChild("EnrolledinWorkshop" + wshNum){
-                
-            }
-            
-        })*/
-        _ = ref?.child("EnrolledinWorkshop" + wshNum).observe(.value, with: { (snapshot) in
+        
+        ref?.child("EnrolledinWorkshop" + wshNum).observeSingleEvent(of: .value, with: { (snapshot) in
+            print(snapshot)
             if snapshot.hasChild(uid!){
                 self.signInOut.setTitle("Sign Out", for: .normal)
-                
+                print("ti si true")
             }
-         
-       
+            else{
+                self.ref?.child("Users").child(uid!).observeSingleEvent(of: .value, with: {(userData) in
+                    
+                    self.finalUser = Users(snapshot: userData)
+                })
+                print("ti si false")
+            }
     })
-    
-
-    }
+}
 }

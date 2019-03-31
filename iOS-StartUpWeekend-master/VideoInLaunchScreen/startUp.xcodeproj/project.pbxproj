@@ -17,6 +17,9 @@
 		993542AF22495E7800BA4727 /* schedule.png in Resources */ = {isa = PBXBuildFile; fileRef = 993542AE22495E7800BA4727 /* schedule.png */; };
 		993542B12249627E00BA4727 /* workshops.png in Resources */ = {isa = PBXBuildFile; fileRef = 993542B02249627E00BA4727 /* workshops.png */; };
 		99421A4E22357ED7005604CF /* RegController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99421A4D22357ED7005604CF /* RegController.swift */; };
+		9951DDC02250F98300054203 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951DDBF2250F98300054203 /* Users.swift */; };
+		9951DDC22250F9C300054203 /* Workshops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951DDC12250F9C300054203 /* Workshops.swift */; };
+		9951DDC42250F9D700054203 /* Speakers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951DDC32250F9D700054203 /* Speakers.swift */; };
 		998049D2224958FF00A88055 /* eventSpeakers.png in Resources */ = {isa = PBXBuildFile; fileRef = 998049D1224958FF00A88055 /* eventSpeakers.png */; };
 		99960D26224541C30002F496 /* SpeakerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99960D25224541C30002F496 /* SpeakerTableViewController.swift */; };
 		99A5345422478200002C950A /* TableWorkshops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A5345322478200002C950A /* TableWorkshops.swift */; };
@@ -47,6 +50,9 @@
 		993542AE22495E7800BA4727 /* schedule.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = schedule.png; sourceTree = "<group>"; };
 		993542B02249627E00BA4727 /* workshops.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = workshops.png; path = VideoInLaunchScreen/workshops.png; sourceTree = SOURCE_ROOT; };
 		99421A4D22357ED7005604CF /* RegController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegController.swift; sourceTree = "<group>"; };
+		9951DDBF2250F98300054203 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		9951DDC12250F9C300054203 /* Workshops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workshops.swift; sourceTree = "<group>"; };
+		9951DDC32250F9D700054203 /* Speakers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speakers.swift; sourceTree = "<group>"; };
 		998049D1224958FF00A88055 /* eventSpeakers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = eventSpeakers.png; path = VideoInLaunchScreen/eventSpeakers.png; sourceTree = SOURCE_ROOT; };
 		99960D25224541C30002F496 /* SpeakerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpeakerTableViewController.swift; path = "/Users/mnp160/Documents/swiftApp2.0/iOS-StartUpWeekend-master/VideoInLaunchScreen/VideoInLaunchScreen/Cotrollers/SpeakerTableViewController.swift"; sourceTree = "<absolute>"; };
 		99A5345322478200002C950A /* TableWorkshops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableWorkshops.swift; sourceTree = "<group>"; };
@@ -99,6 +105,7 @@
 			children = (
 				99421A4C22357E4A005604CF /* Cotrollers */,
 				1BB8ABAD2212889600EB5852 /* Main.storyboard */,
+				9951DDC52250FC7F00054203 /* Models */,
 				99A64EE3224982DA0062AD94 /* mystery-man-square.jpg */,
 				99A64EDD22497F440062AD94 /* background.png */,
 				99A64EDC22497F440062AD94 /* checkin.png */,
@@ -139,6 +146,16 @@
 				1BB8ABAB2212889600EB5852 /* ViewController.swift */,
 			);
 			path = Cotrollers;
+			sourceTree = "<group>";
+		};
+		9951DDC52250FC7F00054203 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9951DDC32250F9D700054203 /* Speakers.swift */,
+				9951DDC12250F9C300054203 /* Workshops.swift */,
+				9951DDBF2250F98300054203 /* Users.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A8518E7A9A7FFA1D147F967C /* Pods */ = {
@@ -288,7 +305,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9951DDC22250F9C300054203 /* Workshops.swift in Sources */,
 				99A5345422478200002C950A /* TableWorkshops.swift in Sources */,
+				9951DDC42250F9D700054203 /* Speakers.swift in Sources */,
+				9951DDC02250F98300054203 /* Users.swift in Sources */,
 				99960D26224541C30002F496 /* SpeakerTableViewController.swift in Sources */,
 				99B9DAD62248001D0066F4DD /* largeWorkshopViewController.swift in Sources */,
 				99B9DAD42247F0900066F4DD /* LargeCellViewController.swift in Sources */,
